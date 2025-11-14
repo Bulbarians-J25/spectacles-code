@@ -3,6 +3,45 @@ import re
 import argparse
 import fnmatch
 
+"""
+# HOW TO USE
+
+## PURPOSE
+This script consolidates all relevant code files in a directory into a single text file named 'all-lines.txt'. It automatically removes comments, blank lines, and excludes non-code files and specified directories.
+
+## BASIC USAGE
+1. Run the script:
+   python context.py
+
+## EXCLUDING FILES AND DIRECTORIES
+Use the `--exclude` flag followed by one or more file names, directory names, or patterns to exclude them from the output.
+
+### More Examples:
+
+# Exclude a single file:
+python context.py --exclude config.js
+
+# Exclude a directory (use quotes if your shell requires it for wildcards):
+python context.py --exclude 'dist/*'
+
+# Exclude all files in a 'tests' subdirectory:
+python context.py --exclude 'tests/*'
+
+# Exclude all files with a specific extension:
+python context.py --exclude '*.log'
+
+# Exclude all files ending with '_temp.py':
+python context.py --exclude '*_temp.py'
+
+# Exclude multiple different files and patterns:
+python context.py --exclude secrets.py 'dist/*' '*.xml' 'temp_folder/*'
+
+## NOTES
+- The output file 'all-lines.txt' is automatically excluded.
+- Default excluded directories: .git, .github, .vscode, __pycache__
+- Default excluded file types include images, documents, and archives (e.g., .png, .pdf, .zip).
+"""
+
 def get_directory_tree(path):
     tree = []
     default_excluded_dirs = ['.git', '.github', '.vscode', '__pycache__']
