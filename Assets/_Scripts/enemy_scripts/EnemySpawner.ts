@@ -14,6 +14,7 @@ export class EnemySpawner extends BaseScriptComponent {
 
     private mCamera = WorldCameraFinderProvider.getInstance();
     onAwake() {
+        print("EnemySpawner onAwake")
         this.spawnParent = this.getSceneObject();
         this.createEvent("UpdateEvent").bind(this.onUpdate.bind(this));
     }
@@ -42,6 +43,12 @@ export class EnemySpawner extends BaseScriptComponent {
         var pos = this.getRandomSpawnPosition(300)
 
         this.currentEnemy.getTransform().setWorldPosition(pos)
+        // get rotation to make the enemy face the player
+        // look dir
+        let dir = this.getTransform().getWorldPosition() .sub(this.currentEnemy.getTransform().getWorldPosition())
+        // angle
+        let rotation = quat.rotationFromTo(vec3.right(), dir)
+        this.currentEnemy.getTransform().setWorldRotation(rotation)
         this.currentEnemy.getTransform().setWorldScale(vec3.one().uniformScale(2))
         this.currentEnemy.createComponent(Lerp.getTypeName())
         this.currentEnemy.getComponent(Lerp.getTypeName()).Init()

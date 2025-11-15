@@ -64,8 +64,7 @@ onUpdate() {
         progress = 1.0; // clamp to 1.0 to ensure we land exactly on the end position
         this.isMoving = false;
         print("Movement Complete.");
-        var sceneObject = this.getSceneObject();
-        sceneObject.destroy();
+        this.destroy();
         return; // we dont want objects to linger on
     }
 

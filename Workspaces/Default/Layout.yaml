@@ -15,7 +15,7 @@ dock:
                   - persistentName: snap.plugin.gui.typescript_status_panel
                     Uuid: f8b71bd2-f210-402d-b581-b083ba17ae00
                 type: section
-                current: 0
+                current: 1
             sizes:
               - 426
               - 328
@@ -37,8 +37,8 @@ dock:
                 type: section
                 current: 0
             sizes:
-              - 434
-              - 320
+              - 440
+              - 314
             type: splitter
             orientation: vertical
           - items:
@@ -59,9 +59,9 @@ dock:
             current: 0
         sizes:
           - 271
-          - 338
-          - 330
-          - 484
+          - 573
+          - 224
+          - 355
         type: splitter
         orientation: horizontal
     sizes:

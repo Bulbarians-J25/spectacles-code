@@ -4,7 +4,7 @@ import WorldCameraFinderProvider from "SpectaclesInteractionKit.lspkg/Providers/
 
 
 @component
-export class PinchExample extends BaseScriptComponent {
+export class Targeting extends BaseScriptComponent {
   private gestureModule: GestureModule = require('LensStudio:GestureModule');
   @input debugText: Text;
   // Reference to TSComponentA with proper typing
@@ -16,8 +16,10 @@ export class PinchExample extends BaseScriptComponent {
 
   private mCamera = WorldCameraFinderProvider.getInstance();
 
-  onAwake() {
 
+
+  onAwake() {
+    print("Targeting onAwake")
     this.debugText.text = "im working"
 
     this.gestureModule
@@ -34,19 +36,19 @@ export class PinchExample extends BaseScriptComponent {
       });
 
     this.gestureModule
-      .getGrabEndEvent(GestureModule.HandType.Left)
-      .add((grabEndArgs: GrabEndArgs) => {
-        this.debugText.text = 'Left Hand Grab End'
-        print('Left Hand Grab Begin');
+      .getGrabBeginEvent(GestureModule.HandType.Right)
+      .add((grabBeginArgs: GrabBeginArgs) => {
+        print('Right Hand Grab Begin');
 
         if (this.gestureGPTScript.IsDone()) {
           let spell = this.gestureGPTScript.getSpellObject("Fire", this.mCamera.getWorldPosition().sub(this.mCamera.forward().uniformScale(110)));
           spell.createComponent(SpellMovement.getTypeName());
           spell.getComponent(SpellMovement.getTypeName()).forwardVec = this.mCamera.forward();
         }
+
       });
 
 
-    
+
   }
 }

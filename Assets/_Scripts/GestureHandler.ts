@@ -96,6 +96,7 @@ export class GestureHandler extends BaseScriptComponent
 
 
     onAwake() {
+        print("GestureHandler onAwake")
         this.startButton.enabled = false;
         this.startText.text = "Please Wait.. Generating Assets";
 
