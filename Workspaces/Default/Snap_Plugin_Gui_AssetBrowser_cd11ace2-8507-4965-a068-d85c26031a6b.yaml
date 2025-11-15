@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 689
+    size: 691
     values:
       - ""
       - FBX
@@ -24,6 +24,7 @@ CollapsedEntities:
       - Materials
       - Materials/PBR.mat
       - Meshes
+      - PBR.mat
       - Render
       - Render/Render Target.renderTarget
       - Scenes
@@ -687,6 +688,7 @@ CollapsedEntities:
       - _Scripts/3DGeneration/Utils/Snap3D_GetStatus.remoteServiceModule
       - _Scripts/3DGeneration/Utils/Snap3D_Submit.remoteServiceModule
       - _Scripts/GestureHandler.ts
+      - _Scripts/SpellMovement.ts
       - _Scripts/Targeting.ts
       - _Scripts/Test.ts
       - _Scripts/UIHandler.ts

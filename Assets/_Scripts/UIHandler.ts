@@ -1,6 +1,7 @@
 
 import { RectangleButton } from '../_Packages/SpectaclesUIKit.lspkg/Scripts/Components/Button/RectangleButton';
 import {GestureHandler} from "./GestureHandler";
+import {SpellMovement} from "./SpellMovement";
 
 
 @component
@@ -17,6 +18,9 @@ export class UIHandler extends BaseScriptComponent {
 
     @input
     gestureGPTScript: GestureHandler;
+
+    //@input
+    //spellScript: SpellMovement;
     
     onAwake() {  
 
@@ -24,7 +28,9 @@ export class UIHandler extends BaseScriptComponent {
         // attach events
         this.startButton.onTriggerUp.add(() => {
             print('Start fully triggered!');
-            this.spellModel = this.gestureGPTScript.getSpellObject("Water")
+            let spell = this.gestureGPTScript.getSpellObject("Water");
+            
+            spell.createComponent(SpellMovement.getTypeName());
         });
   
     }

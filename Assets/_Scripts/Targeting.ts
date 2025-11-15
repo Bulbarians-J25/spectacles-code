@@ -21,8 +21,11 @@ export class PinchExample extends BaseScriptComponent {
       .add((pinchDownArgs: PinchDownArgs) => {
         this.debugText.text = 'Right Hand Pinch Down'
         print('Right Hand Pinch Down');
-        
-        this.spellModel = this.gestureGPTScript.getSpellObject("Water")
+
+        if (this.gestureGPTScript.IsDone()) {
+          this.spellModel = this.gestureGPTScript.getSpellObject("Fire")
+        }
+                
       });
 
     this.gestureModule
@@ -37,6 +40,8 @@ export class PinchExample extends BaseScriptComponent {
       .add((grabBeginArgs: GrabBeginArgs) => {
         this.debugText.text = 'Phone in Hand '
         print('Right hand started to hold a phone.');
+
+        
       });
 
 

@@ -1,7 +1,7 @@
 import { Snap3D } from "./3DGeneration/Snap3D";
 import { Snap3DTypes } from "./3DGeneration/Snap3DTypes";
 import { RectangleButton } from '../_Packages/SpectaclesUIKit.lspkg/Scripts/Components/Button/RectangleButton';
-
+import { SpellMovement } from "./SpellMovement";
 enum GestureType {
     Target,
     PinchLeft,
@@ -84,9 +84,8 @@ export class GestureHandler extends BaseScriptComponent
     private SpellModels: Dictionary<SceneObject> = {}
     private SpellsMats: Dictionary<SceneObject> = {}
 
-    // USE THIS
-    private spellObjects: SceneObject[] = [];
 
+    
     private SpellCombos: string[] =
         [
             'Water', 'Wind', 'Fire'
@@ -114,6 +113,9 @@ export class GestureHandler extends BaseScriptComponent
             print("All assets generated: " + results.length);
             this.startButton.enabled = true;
             this.startText.text = "Start Game";
+
+
+
             })
             .catch((err) => {
             print("One or more generations failed: " + err);
@@ -238,15 +240,10 @@ export class GestureHandler extends BaseScriptComponent
     }
 
 
-    private enableSpinners(enable: boolean) {
-        //this.loaderSpinnerImage.enabled = enable;
-        //this.baseMeshSpinner.enabled = enable;
-        //this.refinedMeshSpinner.enabled = enable;
-    }
-
     public getSpellObject(name: string) {
-        this.SpellModels[name].enabled = true;
-        return this.SpellModels[name];
+        let tempObj = this.SpellModels[name];
+        tempObj.enabled = true;
+        return tempObj;
     }
 
     private GenerateMesh() { }
@@ -275,12 +272,9 @@ export class GestureHandler extends BaseScriptComponent
     }
 
     public IsDone(): boolean {
-        return getLength(this.SpellModels) > 0;
-    }
-
-    public shootSpell() {
-        let prompt = this.validateGestures();
-
+        
+        var length =  Object.keys(this.SpellModels).length 
+        return length > 0
     }
 }
 
