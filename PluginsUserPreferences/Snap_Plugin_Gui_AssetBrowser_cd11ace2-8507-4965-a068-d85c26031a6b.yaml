@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 697
+    size: 699
     values:
       - FBX
       - FBX/goose.fbx
@@ -25,6 +25,7 @@ CollapsedEntities:
       - Materials/PBR.mat
       - Meshes
       - PBR.mat
+      - Prefabs
       - Prefabs/Box.prefab
       - Prefabs/EnemyPrefab.prefab
       - Render
@@ -445,7 +446,6 @@ CollapsedEntities:
       - SpectaclesInteractionKit.lspkg/VersionNumber.ts
       - SpectaclesInteractionKit.lspkg/package.native
       - SpectaclesInteractionKit.lspkg/tsconfig.json
-      - Textures
       - Textures/Base.png
       - Textures/Device Camera Texture.deviceCameraTexture
       - Textures/Echopark.hdr
@@ -457,6 +457,7 @@ CollapsedEntities:
       - Textures/MaterialParams.png
       - Textures/Normal.png
       - Textures/damaged-wizard.png
+      - Textures/updated-logo-text-n-pic.png
       - _Packages
       - _Packages/RemoteServiceGateway.lspkg
       - _Packages/RemoteServiceGateway.lspkg/Helpers
@@ -681,6 +682,7 @@ CollapsedEntities:
       - _Packages/SpectaclesUIKit.lspkg/Textures/test-image.jpg
       - _Packages/SpectaclesUIKit.lspkg/package.native
       - _Packages/SpectaclesUIKit.lspkg/package_dependencies.json
+      - _Scripts
       - _Scripts/3DGeneration
       - _Scripts/3DGeneration/Snap3D.ts
       - _Scripts/3DGeneration/Snap3DTypes.ts

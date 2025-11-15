@@ -4,13 +4,29 @@
     - !<own> d13d39a1-3cdd-4951-b1b2-7fe3b8283b3b
   LazyLoading: false
   RetainAssets: true
+- !<ScriptComponent/76c588fd-4e7b-468a-8d0c-3c74ab0f7bb0>
+  PrefabRemaps:
+    []
+  Name: Lerp
+  Enabled: true
+  ScriptAsset: !<reference> 7247837b-8eb1-41e4-b00d-b5142c501516
+  ScriptInputsDefault:
+    speedLevel: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      speedLevel: !<float> 5.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/d13d39a1-3cdd-4951-b1b2-7fe3b8283b3b>
   PrefabRemaps:
+    - 76c588fd-4e7b-468a-8d0c-3c74ab0f7bb0: 7714617e-26ec-48ec-8ddf-592664fb2a9e
     - d13d39a1-3cdd-4951-b1b2-7fe3b8283b3b: d13d39a1-3cdd-4951-4e4d-801c47d7c4c4
     - f0306a52-5f37-4441-a99f-b8bf2e67c03c: f0306a52-5f37-4441-5660-4740d1983fc3
-    - f800b2c9-cfaa-4f8c-9fec-5f2e88cfe08e: f800b2c9-cfaa-4f8c-6013-a0d177301f71
   Name: Box
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: -50.000000}
@@ -21,7 +37,7 @@
     []
   Components:
     - !<own> f0306a52-5f37-4441-a99f-b8bf2e67c03c
-    - !<own> f800b2c9-cfaa-4f8c-9fec-5f2e88cfe08e
+    - !<own> 76c588fd-4e7b-468a-8d0c-3c74ab0f7bb0
 - !<RenderMeshVisual/f0306a52-5f37-4441-a99f-b8bf2e67c03c>
   PrefabRemaps:
     []
@@ -42,19 +58,3 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<ScriptComponent/f800b2c9-cfaa-4f8c-9fec-5f2e88cfe08e>
-  PrefabRemaps:
-    []
-  Name: SpellMovement
-  Enabled: true
-  ScriptAsset: !<reference> 41b0cc2e-e97c-46d3-9c72-4a6405e92f62
-  ScriptInputsDefault:
-    {}
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      {}
-  ScriptTypes:
-    "":
-      {}

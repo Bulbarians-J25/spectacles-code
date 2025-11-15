@@ -6,26 +6,17 @@ export class Lerp extends BaseScriptComponent {
     @input 
     speedLevel : number = 5.0
 
-     transform
-     isMoving: boolean = false
+     transform : Transform
+     isMoving: boolean = true
      startPosition: vec3
      endPosition: vec3
-     totalTimeForTravel
-     elapsedTime = 0.0
+     totalTimeForTravel : number
+     elapsedTime : number = 0.0 
     
     private mCamera = WorldCameraFinderProvider.getInstance();
 
 onAwake() {
-
-}
-
-public init(startPoint: vec3) {
-    this.startPosition = startPoint;
-}
-
-onStart() {
-    var sceneObject = this.getSceneObject();
-    this.transform = sceneObject.getTransform();
+    this.transform = this.getTransform();
 
     if (this.speedLevel <= 0) {
         print("MOVE SCRIPT ERROR: 'Movement Speed' must be greater than 0.");
@@ -35,9 +26,9 @@ onStart() {
     //startPosition = script.startPoint.getTransform().getWorldPosition();
     this.endPosition = this.mCamera.getTransform().getWorldPosition();
 
-    this.transform.setWorldPosition(this.startPosition);
+    //this.transform.setWorldPosition(this.startPosition);
 
-    var totalDistance = this.startPosition.distance(this.endPosition);
+    var totalDistance = this.getTransform().getWorldPosition().distance(this.endPosition);
     if (totalDistance > 0.001) {
         this.totalTimeForTravel = totalDistance / this.speedLevel;
         this.isMoving = true;
@@ -46,7 +37,13 @@ onStart() {
         print("Movement Skipped: Start and End points are the same.");
     }
 
+    this.createEvent("UpdateEvent").bind(this.onUpdate.bind(this));
 }
+
+public init(startPoint: vec3) {
+    this.startPosition = startPoint;
+}
+
 
 onUpdate() {
     if (!this.isMoving) {
@@ -66,7 +63,8 @@ onUpdate() {
         return; // we dont want objects to linger on
     }
 
-    var newPosition = vec3.lerp(this.startPosition, this.endPosition, progress);
+    var newPosition = vec3.lerp(this.transform.getWorldPosition(), this.endPosition, progress);
+    print(this.endPosition)
     this.transform.setWorldPosition(newPosition);
 
 }

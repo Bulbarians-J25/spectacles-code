@@ -36,7 +36,6 @@ export class EnemySpawner extends BaseScriptComponent {
 
     private spawnNewInstance() 
     {   
-
         this.currentEnemy = this.enemyPrefab.instantiate(this.spawnParent);
         this.currentEnemy.enabled = true
         
@@ -58,7 +57,7 @@ export class EnemySpawner extends BaseScriptComponent {
         var z = radius * Math.sin(angle);
         var y = 0// Assuming ground level spawn
         print("enemy position is " + new vec3(x, y, z) )
-        return new vec3(x, y, z ).add(this.mCamera.getTransform().getWorldPosition());
+        return new vec3(x, y, z).add(this.mCamera.getTransform().getWorldPosition());
     }
 
 }

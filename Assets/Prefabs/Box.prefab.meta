@@ -19,11 +19,27 @@
     PackagePath: ""
     objects:
       - !<own> d13d39a1-3cdd-4951-4e4d-801c47d7c4c4
+- !<ScriptComponent/7714617e-26ec-48ec-8ddf-592664fb2a9e>
+  PrefabRemaps:
+    []
+  Name: Lerp
+  Enabled: true
+  ScriptAsset: !<reference> 7247837b-8eb1-41e4-b00d-b5142c501516
+  ScriptInputsDefault:
+    speedLevel: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      speedLevel: !<float> 5.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/d13d39a1-3cdd-4951-4e4d-801c47d7c4c4>
   PrefabRemaps:
     []
   Name: Box
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: -50.000000}
@@ -34,7 +50,7 @@
     []
   Components:
     - !<own> f0306a52-5f37-4441-5660-4740d1983fc3
-    - !<own> f800b2c9-cfaa-4f8c-6013-a0d177301f71
+    - !<own> 7714617e-26ec-48ec-8ddf-592664fb2a9e
 - !<RenderMeshVisual/f0306a52-5f37-4441-5660-4740d1983fc3>
   PrefabRemaps:
     []
@@ -55,19 +71,3 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<ScriptComponent/f800b2c9-cfaa-4f8c-6013-a0d177301f71>
-  PrefabRemaps:
-    []
-  Name: SpellMovement
-  Enabled: true
-  ScriptAsset: !<reference> 41b0cc2e-e97c-46d3-9c72-4a6405e92f62
-  ScriptInputsDefault:
-    {}
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      {}
-  ScriptTypes:
-    "":
-      {}
