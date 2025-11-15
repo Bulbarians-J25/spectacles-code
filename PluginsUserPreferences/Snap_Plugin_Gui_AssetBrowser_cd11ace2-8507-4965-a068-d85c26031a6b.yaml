@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 694
+    size: 695
     values:
       - FBX
       - FBX/goose.fbx
@@ -693,8 +693,9 @@ CollapsedEntities:
       - _Scripts/Targeting.ts
       - _Scripts/Test.ts
       - _Scripts/UIHandler.ts
-      - _Scripts/movement
-      - _Scripts/movement/larp.js
+      - _Scripts/enemy_scripts
+      - _Scripts/enemy_scripts/lerp.js
+      - _Scripts/enemy_scripts/spawner.js
       - _Scripts/web-facing/Call_AI.js
       - _Scripts/web-facing/Refer_to_DB.js
   options: 4

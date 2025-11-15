@@ -17,7 +17,7 @@ export class PinchExample extends BaseScriptComponent {
   spellModel: SceneObject;
 
   private mCamera = WorldCameraFinderProvider.getInstance();
-  
+
   onAwake() {
 
     this.debugText.text = "im working"
@@ -36,10 +36,11 @@ export class PinchExample extends BaseScriptComponent {
 
       });
 
+
     this.gestureModule
       .getGrabBeginEvent(GestureModule.HandType.Left)
       .add((grabBeginArgs: GrabBeginArgs) => {
-        this.debugText.text = 'Left Hand Grab  Begin '
+        this.debugText.text = 'Left Hand Grab  Begin'
         print('Left Hand Grab Begin');
 
         if (this.gestureGPTScript.IsDone()) {
@@ -48,20 +49,6 @@ export class PinchExample extends BaseScriptComponent {
           spell.getComponent(SpellMovement.getTypeName()).forwardVec = this.mCamera.forward();
         }
       });
-
-    this.gestureModule
-      .getGrabBeginEvent(GestureModule.HandType.Right)
-      .add((grabBeginArgs: GrabBeginArgs) => {
-        this.debugText.text = 'Right Hand Grab  Begin '
-        print('Right Hand Grab Begin');
-
-        if (this.gestureGPTScript.IsDone()) {
-          let spell = this.gestureGPTScript.getSpellObject("Wind", this.mCamera.getWorldPosition().sub(this.mCamera.forward().uniformScale(110)));
-          spell.createComponent(SpellMovement.getTypeName());
-          spell.getComponent(SpellMovement.getTypeName()).forwardVec = this.mCamera.forward();
-        }
-      });
-
 
   }
 }

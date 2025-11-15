@@ -85,7 +85,7 @@ export class GestureHandler extends BaseScriptComponent
     private SpellsMats: Dictionary<SceneObject> = {}
 
 
-    
+
     private SpellCombos: string[] =
         [
             'Water', 'Wind', 'Fire'/*
@@ -284,8 +284,10 @@ export class GestureHandler extends BaseScriptComponent
 
     public IsDone(): boolean {
         
-        var length =  Object.keys(this.SpellModels).length 
-        return length > 0
+        var length =  Object.keys(this.SpellModels).length
+        const isDone = length > 0
+        print("IsDone: " + isDone)
+        return isDone
     }
 }
 
