@@ -27,7 +27,8 @@
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
     debugText: false
-    refScript: false
+    gestureGPTScript: false
+    spellModel: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -38,10 +39,12 @@
     []
   DefaultScriptInputs:
     - debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
-      refScript: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      gestureGPTScript: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      spellModel: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
   InputLines:
     - // @input Component.Text debugText
-    - // @input AssignableType refScript
+    - // @input AssignableType gestureGPTScript
+    - // @input SceneObject spellModel

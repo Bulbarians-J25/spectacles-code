@@ -5,10 +5,12 @@ export class PinchExample extends BaseScriptComponent {
   private gestureModule: GestureModule = require('LensStudio:GestureModule');
   @input debugText: Text;
 
-
   // Reference to TSComponentA with proper typing
   @input
-  refScript: GestureHandler;
+  gestureGPTScript: GestureHandler;
+
+  @input
+  spellModel: SceneObject;
 
   onAwake() {
 
@@ -19,9 +21,8 @@ export class PinchExample extends BaseScriptComponent {
       .add((pinchDownArgs: PinchDownArgs) => {
         this.debugText.text = 'Right Hand Pinch Down'
         print('Right Hand Pinch Down');
-
-
-
+        
+        this.spellModel = this.gestureGPTScript.getSpellObject("Water")
       });
 
     this.gestureModule
