@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 526
+    size: 525
     values:
       - FBX
       - FBX/goose.fbx
@@ -451,12 +451,12 @@ CollapsedEntities:
       - Textures/Echopark.hdr
       - Textures/MaterialParams.png
       - Textures/Normal.png
-      - _Packages
       - _Packages/RemoteServiceGateway.lspkg/Helpers
       - _Packages/RemoteServiceGateway.lspkg/Helpers/AudioProcessor.ts
       - _Packages/RemoteServiceGateway.lspkg/Helpers/DynamicAudioOutput.ts
       - _Packages/RemoteServiceGateway.lspkg/Helpers/MicrophoneRecorder.ts
       - _Packages/RemoteServiceGateway.lspkg/Helpers/VideoController.ts
+      - _Packages/RemoteServiceGateway.lspkg/HostedExternal
       - _Packages/RemoteServiceGateway.lspkg/HostedExternal/Examples/ExampleGeminiCalls.ts
       - _Packages/RemoteServiceGateway.lspkg/HostedExternal/Examples/ExampleGeminiLive.ts
       - _Packages/RemoteServiceGateway.lspkg/HostedExternal/Examples/ExampleImagenCalls.ts
@@ -484,7 +484,6 @@ CollapsedEntities:
       - _Packages/RemoteServiceGateway.lspkg/HostedSnap
       - _Packages/RemoteServiceGateway.lspkg/HostedSnap/DeepSeekTypes.ts
       - _Packages/RemoteServiceGateway.lspkg/HostedSnap/Deepseek.ts
-      - _Packages/RemoteServiceGateway.lspkg/HostedSnap/Examples
       - _Packages/RemoteServiceGateway.lspkg/HostedSnap/Examples/ExampleDeepseekCalls.ts
       - _Packages/RemoteServiceGateway.lspkg/HostedSnap/Examples/ExampleSnap3D.ts
       - _Packages/RemoteServiceGateway.lspkg/HostedSnap/RemoteServiceModules
@@ -497,24 +496,24 @@ CollapsedEntities:
       - _Packages/RemoteServiceGateway.lspkg/README.md
       - _Packages/RemoteServiceGateway.lspkg/RemoteServiceGatewayCredentials.ts
       - _Packages/RemoteServiceGateway.lspkg/RemoteServiceGatewayExamples__PLACE_IN_SCENE.prefab
-      - _Packages/RemoteServiceGateway.lspkg/Resources
       - _Packages/RemoteServiceGateway.lspkg/Resources/Audio Output.audioOutput
       - _Packages/RemoteServiceGateway.lspkg/Resources/Microphone Audio.micaudio
-      - _Packages/RemoteServiceGateway.lspkg/Resources/Visuals
-      - _Packages/RemoteServiceGateway.lspkg/Resources/Visuals/LoadingSpinner
       - _Packages/RemoteServiceGateway.lspkg/Resources/Visuals/LoadingSpinner/LoadingSpinner
       - _Packages/RemoteServiceGateway.lspkg/Resources/Visuals/LoadingSpinner/LoadingSpinner.prefab
       - _Packages/RemoteServiceGateway.lspkg/Resources/Visuals/LoadingSpinner/LoadingSpinner/LoadingSpinner.mat
       - _Packages/RemoteServiceGateway.lspkg/Resources/Visuals/LoadingSpinner/LoadingSpinner/LoadingSpinner.mesh
       - _Packages/RemoteServiceGateway.lspkg/Resources/Visuals/LoadingSpinner/LoadingSpinner/LoadingSpinner.ss_graph
       - _Packages/RemoteServiceGateway.lspkg/Resources/Visuals/LoadingSpinner/LoadingSpinner/LoadingSpinner.ts
-      - _Packages/RemoteServiceGateway.lspkg/Resources/Visuals/Materials
+      - _Packages/RemoteServiceGateway.lspkg/Resources/Visuals/Materials/Empty Material.mat
       - _Packages/RemoteServiceGateway.lspkg/Resources/Visuals/Materials/Image.mat
       - _Packages/RemoteServiceGateway.lspkg/Resources/Visuals/Materials/Image.png
+      - _Packages/RemoteServiceGateway.lspkg/Resources/Visuals/Materials/Simple PBR.mat
       - _Packages/RemoteServiceGateway.lspkg/Resources/Visuals/Materials/SnapImage3D.mat
       - _Packages/RemoteServiceGateway.lspkg/Resources/Visuals/Materials/Unlit.mat
+      - _Packages/RemoteServiceGateway.lspkg/Resources/Visuals/Materials/_jfshkdsfhks.ss_graph
+      - _Packages/RemoteServiceGateway.lspkg/Resources/Visuals/Materials/empty.ss_graph
       - _Packages/RemoteServiceGateway.lspkg/Resources/Visuals/Materials/flat.ss_graph
-      - _Packages/RemoteServiceGateway.lspkg/Resources/Visuals/Materials/unlit.ss_graph
+      - _Packages/RemoteServiceGateway.lspkg/Resources/Visuals/Materials/simple_pbr.ss_graph
       - _Packages/RemoteServiceGateway.lspkg/Utils
       - _Packages/RemoteServiceGateway.lspkg/Utils/Event.ts
       - _Packages/RemoteServiceGateway.lspkg/Utils/Promisfy.ts

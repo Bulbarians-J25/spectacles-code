@@ -49,15 +49,21 @@ export class GestureHandler extends BaseScriptComponent
 
     private avaliableToRequest: boolean = true;
 
-    private loaderSpinnerImage: SceneObject;
+    //private loaderSpinnerImage: SceneObject;
     private baseMeshSpinner: SceneObject;
     private refinedMeshSpinner: SceneObject;
 
     private baseMeshSceneObject: SceneObject = null;
     private refinedMeshSceneObject: SceneObject = null;
 
+      @input
+  imageRoot: Image;
+
     @input
     baseMeshRoot: SceneObject;
+
+    @input
+    refinedMeshRoot : SceneObject
 
     @input
     modelMat: Material;
@@ -102,21 +108,26 @@ export class GestureHandler extends BaseScriptComponent
             prompt: prompt,
             format: "glb",
             refine: true,
-            use_vertex_color: true,
+            use_vertex_color: false,
         })
             .then((submitGetStatusResults) => {
                 submitGetStatusResults.event.add(([value, assetOrError]) => {
                     print (value)
-                    if (value === "base_mesh") { 
+                    print(assetOrError)
+                    if (value === "image") {
+                                this.generateImageAsset(
+                                  assetOrError as Snap3DTypes.TextureAssetData
+                                );
+                              }
+                    else if (value === "base_mesh") { 
                         this.addBaseMeshAsset(name,
                             assetOrError as Snap3DTypes.GltfAssetData
                         );
                     } else if (value === "refined_mesh") {
-                        //     this.generateRefinedMeshAsset(
-                        //         assetOrError as Snap3DTypes.GltfAssetData
-                        //     );
+                             this.generateRefinedMeshAsset(
+                                 assetOrError as Snap3DTypes.GltfAssetData
+                             );
                     } else if (value === "failed") {
-                        this.enableSpinners(false);
                         let error = assetOrError as {
                             errorMsg: string;
                             errorCode: number;
@@ -128,6 +139,8 @@ export class GestureHandler extends BaseScriptComponent
                             error.errorCode +
                             ")"
                         );
+                        //this.enableSpinners(false);
+           
                         this.hintText.text =
                             "Generation failed. Please Tap or Pinch to try again.";
 
@@ -157,6 +170,26 @@ export class GestureHandler extends BaseScriptComponent
         this.generateBaseMeshAsset("Water")
     }
 
+      private generateImageAsset(textureAssetData: Snap3DTypes.TextureAssetData) {
+        this.imageRoot.mainPass.baseTex = textureAssetData.texture;
+        //this.loaderSpinnerImage.enabled = false;
+        //this.imageRoot.enabled = true;
+      }
+
+
+        private generateRefinedMeshAsset(gltfAssetData: Snap3DTypes.GltfAssetData) {
+          this.refinedMeshSceneObject = gltfAssetData.gltfAsset.tryInstantiate(
+            this.refinedMeshRoot,
+            this.modelMat.clone()
+          );
+          //this.refinedMeshSpinner.enabled = false;
+      
+          this.hintText.text =
+            "Generation Completed. Please Tap or Pinch to try again.";
+      
+          this.avaliableToRequest = true;
+        }
+
     private generateBaseMeshAsset(name :string) 
     {
         print("basemesh:" + name)
@@ -170,7 +203,7 @@ export class GestureHandler extends BaseScriptComponent
 
         this.baseMeshSceneObject = gltfAssetData.gltfAsset.tryInstantiate(
             this.baseMeshRoot,
-            this.modelMat
+            this.modelMat.clone()
         );
         //let material :Material;
 
@@ -180,19 +213,19 @@ export class GestureHandler extends BaseScriptComponent
 
          
         print("basemesh:" + 2)
-         //this.baseMeshRoot.enabled = false;
+        //this.baseMeshRoot.enabled = true;
         //addEntry(this.SpellModels, name, spellModel);
 
         
         print("basemesh:" + 3)
-        // this.baseMeshSpinner.enabled = false;
+        //this.baseMeshSpinner.enabled = false;
     }
 
 
     private enableSpinners(enable: boolean) {
-        this.loaderSpinnerImage.enabled = enable;
-        this.baseMeshSpinner.enabled = enable;
-        this.refinedMeshSpinner.enabled = enable;
+        //this.loaderSpinnerImage.enabled = enable;
+        //this.baseMeshSpinner.enabled = enable;
+        //this.refinedMeshSpinner.enabled = enable;
     }
 
 
