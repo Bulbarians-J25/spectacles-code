@@ -26,7 +26,6 @@
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
-    enemy: false
     gestureGPTScript: false
     mainCam: false
     spellModel: false
@@ -46,7 +45,6 @@
       startText: !<reference.Text> 00000000-0000-0000-0000-000000000000
       spellModel: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       gestureGPTScript: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
-      enemy: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
@@ -56,4 +54,3 @@
     - // @input Component.Text startText
     - // @input SceneObject spellModel
     - // @input AssignableType_1 gestureGPTScript
-    - // @input SceneObject enemy

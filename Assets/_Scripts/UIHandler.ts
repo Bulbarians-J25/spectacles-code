@@ -20,20 +20,16 @@ export class UIHandler extends BaseScriptComponent {
     @input
     gestureGPTScript: GestureHandler;
 
-    @input
-    public enemy: SceneObject;
     
   private mCamera = WorldCameraFinderProvider.getInstance();
 
     onAwake() {  
 
-        this.enemy.enabled = false;
 
         // attach events
         this.startButton.onTriggerUp.add(() => {
             print('Start fully triggered!');
 
-            this.enemy.enabled = true;
             
             let spell = this.gestureGPTScript.getSpellObject("Water", this.mCamera.getWorldPosition().sub(this.mCamera.forward().uniformScale(110)));
             spell.createComponent(SpellMovement.getTypeName());

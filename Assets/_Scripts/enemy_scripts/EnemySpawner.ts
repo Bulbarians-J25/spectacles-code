@@ -39,9 +39,13 @@ export class EnemySpawner extends BaseScriptComponent {
         this.currentEnemy = this.enemyPrefab.instantiate(this.spawnParent);
         this.currentEnemy.enabled = true
         
-        var pos = this.getRandomSpawnPosition(100)
+        var pos = this.getRandomSpawnPosition(300)
 
         this.currentEnemy.getTransform().setWorldPosition(pos)
+        this.currentEnemy.getTransform().setWorldScale(vec3.one().uniformScale(2))
+        this.currentEnemy.createComponent(Lerp.getTypeName())
+        this.currentEnemy.getComponent(Lerp.getTypeName()).Init()
+        
         /*
         if (this.currentEnemy.getComponent(Lerp.getTypeName()) != null )
         {

@@ -12,10 +12,10 @@ export class Lerp extends BaseScriptComponent {
      endPosition: vec3
      totalTimeForTravel : number
      elapsedTime : number = 0.0 
-    
+     lifetime:number = 15.0
     private mCamera = WorldCameraFinderProvider.getInstance();
 
-onAwake() {
+public Init() {
     this.transform = this.getTransform();
 
     if (this.speedLevel <= 0) {
@@ -24,6 +24,7 @@ onAwake() {
     }
 
     //startPosition = script.startPoint.getTransform().getWorldPosition();
+    print(this.mCamera)
     this.endPosition = this.mCamera.getTransform().getWorldPosition();
 
     //this.transform.setWorldPosition(this.startPosition);
@@ -46,11 +47,16 @@ public init(startPoint: vec3) {
 
 
 onUpdate() {
+    var deltaTime = getDeltaTime();
+    this.lifetime -= deltaTime;
+    if (this.lifetime <=0)
+        this.sceneObject.destroy()
+    
     if (!this.isMoving) {
         return;
     }
 
-    var deltaTime = getDeltaTime();
+
     this.elapsedTime += deltaTime;
     var progress = this.elapsedTime / this.totalTimeForTravel;
 
@@ -64,7 +70,6 @@ onUpdate() {
     }
 
     var newPosition = vec3.lerp(this.transform.getWorldPosition(), this.endPosition, progress);
-    print(this.endPosition)
     this.transform.setWorldPosition(newPosition);
 
 }

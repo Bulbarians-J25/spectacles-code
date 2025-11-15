@@ -13,7 +13,7 @@ metaInfo:
     []
   tags:
     []
-  lensName: Junction-v3
+  lensName: Junction
   lensDescriptors:
     - EXPERIMENTAL_API
   lensApplicability:
@@ -22,7 +22,7 @@ metaInfo:
   lensClientCompatibilities:
     - Spectacles
   platformBundlesEnabled: false
-  iconHash: ""
+  iconHash: f9023c2c960cfab02573740b7ba922c8
   videoPreviewHash: ""
   fromTemplateName: Spectacles
   fromTemplateUrl: Lens Studio 5.15.1.25102815

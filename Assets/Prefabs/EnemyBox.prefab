@@ -1,0 +1,60 @@
+- !<ObjectPrefab/e47588f5-2328-4428-97f7-f4439d52d9b8>
+  PackagePath: ""
+  objects:
+    - !<own> 93f21fa6-c79e-4e14-942b-7308cf7d2834
+  LazyLoading: false
+  RetainAssets: true
+- !<ScriptComponent/42605c19-c4dd-4a4c-8527-dc016569a157>
+  PrefabRemaps:
+    []
+  Name: Lerp
+  Enabled: true
+  ScriptAsset: !<reference> 7247837b-8eb1-41e4-b00d-b5142c501516
+  ScriptInputsDefault:
+    speedLevel: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      speedLevel: !<float> 5.000000
+  ScriptTypes:
+    "":
+      {}
+- !<RenderMeshVisual/4b082346-7bbf-4dba-8418-7ebffadc37ef>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> d3ca0fec-24f4-47cf-a4b2-298061d1d511
+  Mesh: !<reference> e542623c-1432-4bfa-881d-a28905bd9e57
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<SceneObject/93f21fa6-c79e-4e14-942b-7308cf7d2834>
+  PrefabRemaps:
+    - 42605c19-c4dd-4a4c-8527-dc016569a157: 38e5af18-bf66-472f-b412-754d6d2f7d19
+    - 4b082346-7bbf-4dba-8418-7ebffadc37ef: a37d2275-91ad-4d72-a6ad-226eca0673d5
+    - 93f21fa6-c79e-4e14-942b-7308cf7d2834: cd153960-e6cf-494e-84e2-c512b69fa0c0
+  Name: Box
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: -50.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 10.000000, y: 10.000000, z: 10.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 4b082346-7bbf-4dba-8418-7ebffadc37ef
+    - !<own> 42605c19-c4dd-4a4c-8527-dc016569a157

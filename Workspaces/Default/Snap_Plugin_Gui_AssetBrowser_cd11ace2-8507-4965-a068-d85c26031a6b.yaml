@@ -1,33 +1,46 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 699
+    size: 713
     values:
-      - FBX
-      - FBX/goose.fbx
-      - FBX/goose.fbx/.hidden
-      - FBX/goose.fbx/.hidden/Material.001
-      - FBX/goose.fbx/.hidden/white
-      - FBX/goose.fbx/Materials
-      - FBX/goose.fbx/Materials/Material.001
-      - FBX/goose.fbx/Materials/Material.002
-      - FBX/goose.fbx/Materials/Material.003
-      - FBX/goose.fbx/Meshes
-      - FBX/goose.fbx/Meshes/Plane
-      - FBX/goose.fbx/Meshes/Plane1
-      - FBX/goose.fbx/Meshes/Plane2
-      - FBX/goose.fbx/goose
+      - Easy Lens
+      - Easy Lens/Lens Components
+      - Easy Lens/Lens Components/Screen Sticker_5.9.1.lsc
       - Image 2.mat
       - Image 3.mat
+      - Image 4.mat
       - Image.mat
       - Internet Module.internetModule
       - Materials
       - Materials/PBR.mat
       - Meshes
+      - Models/Wizard_Frog_Tears_1115230437_texture.glb
+      - Models/Wizard_Frog_Tears_1115230437_texture.glb/.hidden
+      - Models/Wizard_Frog_Tears_1115230437_texture.glb/.hidden/Material_0.007
+      - Models/Wizard_Frog_Tears_1115230437_texture.glb/Materials
+      - Models/Wizard_Frog_Tears_1115230437_texture.glb/Materials/Material_0.007
+      - Models/Wizard_Frog_Tears_1115230437_texture.glb/Meshes
+      - Models/Wizard_Frog_Tears_1115230437_texture.glb/Meshes/Mesh1.004
+      - Models/Wizard_Frog_Tears_1115230437_texture.glb/Textures
+      - Models/Wizard_Frog_Tears_1115230437_texture.glb/Textures/Image_0
+      - Models/Wizard_Frog_Tears_1115230437_texture.glb/Wizard_Frog_Tears_1115230437_texture
+      - Models/goose.fbx
+      - Models/goose.fbx/.hidden
+      - Models/goose.fbx/.hidden/Material.001
+      - Models/goose.fbx/.hidden/white
+      - Models/goose.fbx/Materials
+      - Models/goose.fbx/Materials/Material.001
+      - Models/goose.fbx/Materials/Material.002
+      - Models/goose.fbx/Materials/Material.003
+      - Models/goose.fbx/Meshes
+      - Models/goose.fbx/Meshes/Plane
+      - Models/goose.fbx/Meshes/Plane1
+      - Models/goose.fbx/Meshes/Plane2
+      - Models/goose.fbx/goose
       - PBR.mat
-      - Prefabs
       - Prefabs/Box.prefab
-      - Prefabs/EnemyPrefab.prefab
+      - Prefabs/EnemyBox.prefab
+      - Prefabs/Pepe.prefab
       - Render
       - Render/Render Target.renderTarget
       - Scenes
@@ -446,6 +459,7 @@ CollapsedEntities:
       - SpectaclesInteractionKit.lspkg/VersionNumber.ts
       - SpectaclesInteractionKit.lspkg/package.native
       - SpectaclesInteractionKit.lspkg/tsconfig.json
+      - Textures
       - Textures/Base.png
       - Textures/Device Camera Texture.deviceCameraTexture
       - Textures/Echopark.hdr

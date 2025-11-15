@@ -1,0 +1,117 @@
+- !<AssetImportMetadata/f0ce24b1-074f-41a8-868f-aed9d2ced4cc>
+  ImportedAssetIds:
+    ObjectPrefab: !<reference> b2015598-ec81-41c1-af90-7d0d50075427
+  ImporterName: ObjectPrefabImporter
+  PrimaryAsset: !<reference> b2015598-ec81-41c1-af90-7d0d50075427
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    ObjectPrefab: !<own> a834a176-6be7-454a-89af-e47747ab5115
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/1908567a-3bd9-4825-6dcc-59bf8caea585>
+  PrefabRemaps:
+    []
+  Name: Scenes
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 75db8174-b70f-496b-4263-973a27bf7520
+  Components:
+    []
+- !<SceneObject/299413cc-3933-4e37-7dfe-be1e160da2a3>
+  PrefabRemaps:
+    []
+  Name: Mesh1.0
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 885cf9eb-8c34-4bca-580c-abca486c5a84
+- !<SceneObject/75db8174-b70f-496b-4263-973a27bf7520>
+  PrefabRemaps:
+    []
+  Name: Scene
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 299413cc-3933-4e37-7dfe-be1e160da2a3
+  Components:
+    []
+- !<RenderMeshVisual/885cf9eb-8c34-4bca-580c-abca486c5a84>
+  PrefabRemaps:
+    []
+  Name: Mesh1.004
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> d521c93e-ebf4-486f-91e0-5ccd82d6c230
+  Mesh: !<reference> 1bdb306d-d69d-4d5e-853e-22af8eb5980c
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<SceneObject/91779a0d-42a4-4889-64da-1305a753c952>
+  PrefabRemaps:
+    []
+  Name: Wizard_Frog_Tears_1115230437_texture
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 100.000000, y: 100.000000, z: 100.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 1908567a-3bd9-4825-6dcc-59bf8caea585
+  Components:
+    - !<own> 96cc1200-17b3-4414-921c-ff4f52f4bed3
+- !<ScriptComponent/96cc1200-17b3-4414-921c-ff4f52f4bed3>
+  PrefabRemaps:
+    []
+  Name: Lerp
+  Enabled: true
+  ScriptAsset: !<reference> 7247837b-8eb1-41e4-b00d-b5142c501516
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      speedLevel: !<float> 20.000000
+  ScriptTypes:
+    "":
+      {}
+- !<ObjectPrefabAssetData/a834a176-6be7-454a-89af-e47747ab5115>
+  Prototype: !<ObjectOwner/935d4877-5b6a-454b-8646-d4c05b87605b>
+    PackagePath: ""
+    objects:
+      - !<own> 91779a0d-42a4-4889-64da-1305a753c952
