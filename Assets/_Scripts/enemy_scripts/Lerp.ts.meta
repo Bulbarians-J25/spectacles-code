@@ -41,4 +41,4 @@
     -
       {}
   InputLines:
-    - // @input float speedLevel = 5
+    - // @input float speedLevel = 15

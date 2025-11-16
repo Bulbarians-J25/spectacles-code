@@ -4,7 +4,7 @@ import WorldCameraFinderProvider from "SpectaclesInteractionKit.lspkg/Providers/
 export class Lerp extends BaseScriptComponent {
 
     @input 
-    speedLevel : number = 5.0
+    speedLevel : number = 200.0
 
      transform : Transform
      isMoving: boolean = true

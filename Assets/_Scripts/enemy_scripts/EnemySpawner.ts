@@ -50,9 +50,10 @@ export class EnemySpawner extends BaseScriptComponent {
         //this.currentEnemy.name = 'Pepe' + Math.random();
         this.currentEnemy.enabled = true
         
-        var pos = this.getRandomSpawnPosition(300)
+        var pos = this.getRandomSpawnPosition(200)
 
         this.currentEnemy.getTransform().setWorldPosition(pos)
+        print("enemy-pos: "+ this.currentEnemy.getTransform())
         // get rotation to make the enemy face the player
         // look dir
         let dir = this.getTransform().getWorldPosition().sub(this.currentEnemy.getTransform().getWorldPosition())
@@ -87,7 +88,7 @@ export class EnemySpawner extends BaseScriptComponent {
             {
                 // collide with spells
                 // doesnt work 
-                print("COLLISION: player and pepe")
+                print("COLLISION: spell and pepe")
 
                 print(this.currentEnemy.name)
                 //this.currentEnemy.enabled = false
@@ -100,21 +101,16 @@ export class EnemySpawner extends BaseScriptComponent {
         {
             //this.currentEnemy.getComponent(Lerp.getTypeName()).init(this.getRandomSpawnPosition(2.5)) // TODOO: need pass position
             print("New instance spawned from prefab!");
-        }*/
-    }
-
-    private getRandomSpawnPosition(radius: number): vec3
+        }*/}   
+         private getRandomSpawnPosition(radius: number): vec3
     {
-        var angle = Math.random() * 2 * Math.PI;
-        var x = radius * Math.cos(angle);
-        var z = radius * Math.sin(angle);
-        var y = 0// Assuming ground level spawn
-        let desiredPosition = new vec3(x, y, z).add(this.mCamera.getTransform().getWorldPosition());
-        if (!this.mCamera.inFoV(desiredPosition)) 
-            {
-                return this.getRandomSpawnPosition(radius);
-            }
-        return  desiredPosition;
+        
+            var angle = Math.random() * (2 * Math.PI * 0.33 - 1) + Math.PI * 0.33 ; // 30 degrees each side
+            var forward = this.mCamera.getTransform().forward
+            var point = forward.uniformScale(-radius).add(this.mCamera.getWorldPosition())
+            //var desiredPosition = quat.angleAxis(angle, vec3.up()).multiplyVec3(point)
+
+        return point;
     }
 
 }

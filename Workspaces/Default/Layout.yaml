@@ -15,7 +15,7 @@ dock:
                   - persistentName: snap.plugin.gui.typescript_status_panel
                     Uuid: f8b71bd2-f210-402d-b581-b083ba17ae00
                 type: section
-                current: 1
+                current: 0
             sizes:
               - 459
               - 295
@@ -30,7 +30,7 @@ dock:
                   - persistentName: Snap.Plugin.Gui.ScriptEditor
                     Uuid: d24f7dcc-8617-419d-b446-1eaccd3ba5ea
                 type: section
-                current: 2
+                current: 0
               - items:
                   - persistentName: Snap.Plugin.Gui.LoggerPanel
                     Uuid: 81de965d-0c94-4d28-82cf-901740003a1f
@@ -39,8 +39,8 @@ dock:
                 type: section
                 current: 0
             sizes:
-              - 315
-              - 439
+              - 351
+              - 403
             type: splitter
             orientation: vertical
           - items:
@@ -61,9 +61,9 @@ dock:
             current: 0
         sizes:
           - 262
-          - 737
-          - 42
-          - 382
+          - 625
+          - 82
+          - 454
         type: splitter
         orientation: horizontal
     sizes:
