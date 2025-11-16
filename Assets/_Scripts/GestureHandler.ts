@@ -1,7 +1,7 @@
 import { Snap3D } from "./3DGeneration/Snap3D";
 import { Snap3DTypes } from "./3DGeneration/Snap3DTypes";
 import { RectangleButton } from '../_Packages/SpectaclesUIKit.lspkg/Scripts/Components/Button/RectangleButton';
-import { SpellMovement } from "./SpellMovement";
+import { EnemySpawner } from "./enemy_scripts/EnemySpawner";
 enum GestureType {
     Target,
     PinchLeft,
@@ -54,6 +54,9 @@ export class GestureHandler extends BaseScriptComponent
     public startButton: RectangleButton;
 
     @input
+    public enemySpawner: EnemySpawner;
+
+    @input
     public startText: Text;
 
 
@@ -83,12 +86,12 @@ export class GestureHandler extends BaseScriptComponent
 
     private SpellModels: Dictionary<SceneObject> = {}
     private SpellsMats: Dictionary<SceneObject> = {}
-
+    private isDone: boolean = false
 
 
     private SpellCombos: string[] =
         [
-            'Water', 'Wind', 'Fire'/*
+            'Water', 'Fire'/* 'Wind', 
             'Fire Water', 'Water Fire',
             'Fire Wind', 'Wind Fire',
             'Water Wind', 'Wind Water',*/
@@ -98,8 +101,8 @@ export class GestureHandler extends BaseScriptComponent
     onAwake() {
         print("GestureHandler onAwake")
         this.startButton.enabled = false;
-        this.startText.text = "Please Wait.. Generating Assets";
-
+        this.startText.text = "Please Wait.. Generating Your Personal Assets";
+        
         const promises: Promise<boolean>[] = this.SpellCombos.map((combo) => {
             print(combo);
             return this.ConsumePrompt(combo);
@@ -108,8 +111,13 @@ export class GestureHandler extends BaseScriptComponent
         Promise.all(promises)
             .then((results) => {
             print("All assets generated: " + results.length);
+
+
             this.startButton.enabled = true;
             this.startText.text = "Start Game";
+            this.isDone = true
+
+            this.enemySpawner.startSpawning();
 
             })
             .catch((err) => {
@@ -234,8 +242,7 @@ export class GestureHandler extends BaseScriptComponent
 
 
     public getSpellObject(name: string, position: vec3) {
-        let test = global.scene.createSceneObject(name)
-        print(JSON.stringify(this.Spells))
+        let test = global.scene.createSceneObject(name + "Spell")
         let tempObj = this.Spells[name].gltfAsset.tryInstantiate (
             test,
             this.modelMat.clone()
@@ -247,6 +254,10 @@ export class GestureHandler extends BaseScriptComponent
         tempObj.getTransform().setWorldRotation(this.RandomRotation())
         tempObj.getTransform().setWorldPosition(position)
         tempObj.enabled = true
+        let body = tempObj.createComponent('Physics.BodyComponent')
+        body.shape = Shape.createBoxShape()
+        body.mass = 0
+
         return tempObj;
     }
 
@@ -284,11 +295,8 @@ export class GestureHandler extends BaseScriptComponent
     }
 
     public IsDone(): boolean {
-        
-        var length =  Object.keys(this.SpellModels).length
-        const isDone = length > 0
-        print("IsDone: " + isDone)
-        return isDone
+
+        return this.isDone
     }
 }
 

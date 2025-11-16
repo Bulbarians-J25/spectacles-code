@@ -52,24 +52,30 @@ onUpdate() {
     if (this.lifetime <=0)
         this.sceneObject.destroy()
     
-    if (!this.isMoving) {
+    let targetPos = this.mCamera.getWorldPosition();
+    let direction = targetPos.sub(this.getTransform().getWorldPosition()).normalize()
+    if(direction.lengthSquared <= 0.1)
         return;
-    }
+    
+    this.getTransform().setWorldPosition(this.getTransform().getWorldPosition().add(direction.uniformScale(this.speedLevel * deltaTime)));
+    // if (!this.isMoving) {
+    //     return;
+    // }
 
 
-    this.elapsedTime += deltaTime;
-    var progress = this.elapsedTime / this.totalTimeForTravel;
+    // this.elapsedTime += deltaTime;
+    // var progress = this.elapsedTime / this.totalTimeForTravel;
 
-    if (progress >= 1.0) {
-        progress = 1.0; // clamp to 1.0 to ensure we land exactly on the end position
-        this.isMoving = false;
-        print("Movement Complete.");
-        this.destroy();
-        return; // we dont want objects to linger on
-    }
+    // if (progress >= 1.0) {
+    //     progress = 1.0; // clamp to 1.0 to ensure we land exactly on the end position
+    //     this.isMoving = false;
+    //     print("Movement Complete.");
+    //     this.destroy();
+    //     return; // we dont want objects to linger on
+    // }
 
-    var newPosition = vec3.lerp(this.transform.getWorldPosition(), this.endPosition, progress);
-    this.transform.setWorldPosition(newPosition);
+    // var newPosition = vec3.lerp(this.transform.getWorldPosition(), this.endPosition, progress);
+    // this.transform.setWorldPosition(newPosition);
 
 }
 }

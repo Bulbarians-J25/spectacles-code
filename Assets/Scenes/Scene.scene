@@ -7,6 +7,7 @@
     - !<own> aceba1ac-ea58-49ec-a758-86e64e562f6f
     - !<own> a0e88b02-44df-4b36-a025-cb8ab82ff051
     - !<own> ee1755b1-6e7f-4c28-8350-9ca85346ec80
+    - !<own> c3fbdf37-af98-490b-882c-f2e7688a9dde
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       - |
@@ -22,7 +23,7 @@
 - !<SceneObject/00000000-0000-0065-0000-000000000064>
   PrefabRemaps:
     []
-  Name: Camera Object
+  Name: Player
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
@@ -31,7 +32,7 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
-    []
+    - !<own> 9c336b23-9491-4842-a3c8-9ee87f4ecff6
   Components:
     - !<own> 00000000-0000-0065-0000-000000000065
     - !<own> e5553c8a-0b7e-4ef4-92d9-3e1318fb82c1
@@ -564,7 +565,7 @@
 - !<SceneObject/2634267a-c4ab-4172-8d01-f2b3ab00251b>
   PrefabRemaps:
     []
-  Name: Image
+  Name: StartImage
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
@@ -592,6 +593,25 @@
     - !<own> a2e829b7-ec1d-4a5e-ba35-d45b47a399ec
   Components:
     []
+- !<Image/268e29ee-014c-40ad-9fb7-217121787776>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> c8bbf3cc-c4b3-4980-8d83-925dd46f4268
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
 - !<ScriptComponent/2732d388-98da-4ba1-85c9-359ecb72d9e7>
   PrefabRemaps:
     []
@@ -784,6 +804,25 @@
     - !<own> b6967747-d54d-4fdf-b8cc-652d7e6080ba
   Components:
     []
+- !<ScriptComponent/308ab1ef-8b50-4e7b-94c5-e14e10e3e19c>
+  PrefabRemaps:
+    []
+  Name: PlayerHealth
+  Enabled: true
+  ScriptAsset: !<reference> 6b4dc3b8-cd6f-4636-85e9-2253d7fc7334
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      enemySpawner: !<MappingBased.AssignableType> b31038b2-cb39-40d6-8147-f6d6a63de8ce
+      infoText: !<reference.Text> 61965c05-9f8e-4dd4-8f7c-b5c4380fba12
+      startImage: !<reference.Image> b8124c81-18fd-4378-a61e-e0072d683d6d
+      deathImage: !<reference.Image> 268e29ee-014c-40ad-9fb7-217121787776
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/319c29db-cd9c-448c-8028-20ef49b55a70>
   PrefabRemaps:
     []
@@ -1230,6 +1269,7 @@
     - !<own> 2634267a-c4ab-4172-8d01-f2b3ab00251b
     - !<own> 724f2057-2383-4de3-8d62-fe038faa897f
     - !<own> beda5b5d-a749-496c-a019-7e110c62d811
+    - !<own> 8c27e3ea-24b0-4c5a-a132-167ec3420c06
   Components:
     - !<own> 40a4b9a0-08fe-4f14-9d57-a8051c912709
 - !<SceneObject/5073a1e9-5105-46dd-8050-79de03e5fb39>
@@ -1277,6 +1317,23 @@
     - !<own> da31d502-20f7-4e8f-8ac9-adca9b659268
   Components:
     []
+- !<AudioComponent/5489e79e-6296-4a35-91a4-dc148556c537>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> 5c1edabc-e0c7-4c78-ab3a-b454db537e59
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: false
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
 - !<SceneObject/5544eb4f-daa7-4441-84cd-b06ac2bda1b6>
   PrefabRemaps:
     []
@@ -1622,7 +1679,7 @@
   MeshShadowMode: None
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
-  Text: "Step into the world of Wizards of the Art! Use magical gestures to unleash fire, water, and wind attacks to defeat enemies and save the realm!"
+  Text: Step into the world of Wizards of the Art! Use magical gestures to unleash fire and water attacks to defeat enemies and save the realm!
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -1915,7 +1972,7 @@
   PrefabRemaps:
     []
   Name: Gesture
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 10.000000, z: 10.000000}
@@ -2047,6 +2104,23 @@
     CapitalizationOverride: None
   DepthTest: false
   TwoSided: false
+- !<AudioComponent/795dd46b-1b96-40bf-b247-b3a4897b1218>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> 886b10ea-cf72-40d2-9036-902d8fba3f51
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: false
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
 - !<SceneObject/7b9d067f-414a-4620-a6b1-b0824953478c>
   PrefabRemaps:
     []
@@ -2393,6 +2467,7 @@
       useVertexColor: true
       hintText: !<reference.Text> 78224225-349e-4dcf-9df2-c4fa1b347500
       startButton: !<MappingBased.AssignableType> b1b8638e-65c2-4f33-96f8-652bbd91d74c
+      enemySpawner: !<MappingBased.AssignableType_1> b31038b2-cb39-40d6-8147-f6d6a63de8ce
       startText: !<reference.Text> ee8d3efe-918f-4633-9e77-24e567a20e1c
       imageRoot: !<reference.Image> f754f41c-b808-461c-ad16-e78a04139b25
       baseMeshRoot: !<reference.SceneObject> 26354727-0d40-4f78-9a56-d1da1f99abe8
@@ -2436,6 +2511,21 @@
   BlendNormals: false
   BlendShapes:
     {}
+- !<SceneObject/8c27e3ea-24b0-4c5a-a132-167ec3420c06>
+  PrefabRemaps:
+    []
+  Name: DeathImage
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 5.000000, z: 2.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 20.000000, y: 32.000000, z: 32.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 268e29ee-014c-40ad-9fb7-217121787776
 - !<SceneObject/8cdd4c87-6054-4626-9717-2c37ae231599>
   PrefabRemaps:
     []
@@ -2556,6 +2646,21 @@
     - !<own> 541a1667-fb17-43bf-bd3b-7b713063d3f7
   Components:
     []
+- !<SceneObject/9c336b23-9491-4842-a3c8-9ee87f4ecff6>
+  PrefabRemaps:
+    []
+  Name: PlayerHealth
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 308ab1ef-8b50-4e7b-94c5-e14e10e3e19c
 - !<SceneObject/9c6bdaf8-6f75-4c15-8f87-51a47efb49e9>
   PrefabRemaps:
     []
@@ -3138,6 +3243,8 @@
       debugText: !<reference.Text> 880900f8-df4b-4250-bb00-9eadcf40199f
       gestureGPTScript: !<MappingBased.AssignableType> 895f1493-b122-4975-93d4-366a2c42fcd3
       spellModel: !<reference.SceneObject> 102673da-c023-4ea5-907b-ddf5d02833a8
+      fireAudio: !<reference.AudioComponent> 5489e79e-6296-4a35-91a4-dc148556c537
+      waterAudio: !<reference.AudioComponent> 795dd46b-1b96-40bf-b247-b3a4897b1218
   ScriptTypes:
     "":
       {}
@@ -3308,6 +3415,21 @@
     - !<own> 80e9d924-bd3c-4176-9c52-05a2603b2a4e
   Components:
     []
+- !<SceneObject/c3fbdf37-af98-490b-882c-f2e7688a9dde>
+  PrefabRemaps:
+    []
+  Name: BGM
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> c6afc2c8-cc57-4b55-8a8c-edd291cdbe7d
 - !<SceneObject/c5f1f0e9-6707-4a13-9453-fbf92b4eba12>
   PrefabRemaps:
     []
@@ -3378,6 +3500,23 @@
     ring-3_end_end_end: !<reference> b6967747-d54d-4fdf-b8cc-652d7e6080ba
     thumb-3_end_end_end_end: !<reference> 1a90888e-d4d2-4c81-b8cb-9e2370b94e8a
     pinky-3_end_end: !<reference> 319c29db-cd9c-448c-8028-20ef49b55a70
+- !<AudioComponent/c6afc2c8-cc57-4b55-8a8c-edd291cdbe7d>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> 02e01544-8001-4792-8053-fb504b952ac7
+  EnableAutoplayLoop: true
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: false
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
 - !<SceneObject/c89d7e48-75a6-414e-a253-874f80bfe792>
   PrefabRemaps:
     []
@@ -3542,7 +3681,7 @@
   PrefabRemaps:
     []
   Name: Debug
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -4191,6 +4330,8 @@
     - !<own> 75c962cb-bc77-49be-ae05-9d7b19fd34dc
   Components:
     - !<own> b4ef0cff-5a2e-4394-bfb8-7b67d16ca21d
+    - !<own> 5489e79e-6296-4a35-91a4-dc148556c537
+    - !<own> 795dd46b-1b96-40bf-b247-b3a4897b1218
 - !<SceneObject/fc530e67-51dc-4b55-8306-a92acdd025f6>
   PrefabRemaps:
     []

@@ -1,5 +1,7 @@
 import WorldCameraFinderProvider from "SpectaclesInteractionKit.lspkg/Providers/CameraProvider/WorldCameraFinderProvider";
 import {Lerp} from "./Lerp";
+import { SpellMovement } from "_Scripts/SpellMovement";
+import { PlayerHealth } from "_Scripts/Player/PlayerHealth";
 
 @component
 export class EnemySpawner extends BaseScriptComponent {
@@ -16,6 +18,11 @@ export class EnemySpawner extends BaseScriptComponent {
     onAwake() {
         print("EnemySpawner onAwake")
         this.spawnParent = this.getSceneObject();
+        
+    }
+
+
+    startSpawning() {
         this.createEvent("UpdateEvent").bind(this.onUpdate.bind(this));
     }
 
@@ -40,19 +47,37 @@ export class EnemySpawner extends BaseScriptComponent {
         this.currentEnemy = this.enemyPrefab.instantiate(this.spawnParent);
         this.currentEnemy.enabled = true
         
-        var pos = this.getRandomSpawnPosition(300)
+        var pos = this.getRandomSpawnPosition(150)
 
         this.currentEnemy.getTransform().setWorldPosition(pos)
         // get rotation to make the enemy face the player
         // look dir
-        let dir = this.getTransform().getWorldPosition() .sub(this.currentEnemy.getTransform().getWorldPosition())
+        let dir = this.getTransform().getWorldPosition().sub(this.currentEnemy.getTransform().getWorldPosition())
         // angle
-        let rotation = quat.rotationFromTo(vec3.right(), dir)
+        let rotation = quat.rotationFromTo(vec3.left(), dir)
         this.currentEnemy.getTransform().setWorldRotation(rotation)
         this.currentEnemy.getTransform().setWorldScale(vec3.one().uniformScale(2))
         this.currentEnemy.createComponent(Lerp.getTypeName())
         this.currentEnemy.getComponent(Lerp.getTypeName()).Init()
         
+        // add collisions
+        let body = this.currentEnemy.createComponent('Physics.BodyComponent')
+        body.shape = Shape.createBoxShape();
+        body.mass = 0
+        body.onCollisionEnter.add(function (e)
+        {
+            var collision = e.collision;
+            print(this.mCamera)
+            if (collision.collider.sceneObject.name.includes("Player"))
+            {
+                // collide with player
+                collision.collider.sceneObject.getComponent(PlayerHealth.getTypeName()).takeDamage()
+            }
+            else if (e.collision.collider.sceneObject.name.includes("Spell"))
+            {
+                this.destroy()                
+            }
+        })
         /*
         if (this.currentEnemy.getComponent(Lerp.getTypeName()) != null )
         {

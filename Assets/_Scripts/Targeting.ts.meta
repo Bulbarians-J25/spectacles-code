@@ -27,8 +27,10 @@
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
     debugText: false
+    fireAudio: false
     gestureGPTScript: false
     spellModel: false
+    waterAudio: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -41,6 +43,8 @@
     - debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
       gestureGPTScript: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
       spellModel: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      fireAudio: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      waterAudio: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
@@ -48,3 +52,5 @@
     - // @input Component.Text debugText
     - // @input AssignableType gestureGPTScript
     - // @input SceneObject spellModel
+    - // @input Component.AudioComponent fireAudio
+    - // @input Component.AudioComponent waterAudio

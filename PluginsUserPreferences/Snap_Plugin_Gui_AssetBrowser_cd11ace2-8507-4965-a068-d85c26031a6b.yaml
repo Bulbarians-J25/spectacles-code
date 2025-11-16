@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 713
+    size: 718
     values:
       - Easy Lens
       - Easy Lens/Lens Components
@@ -14,6 +14,7 @@ CollapsedEntities:
       - Materials
       - Materials/PBR.mat
       - Meshes
+      - Models
       - Models/Wizard_Frog_Tears_1115230437_texture.glb
       - Models/Wizard_Frog_Tears_1115230437_texture.glb/.hidden
       - Models/Wizard_Frog_Tears_1115230437_texture.glb/.hidden/Material_0.007
@@ -38,6 +39,7 @@ CollapsedEntities:
       - Models/goose.fbx/Meshes/Plane2
       - Models/goose.fbx/goose
       - PBR.mat
+      - Prefabs
       - Prefabs/Box.prefab
       - Prefabs/EnemyBox.prefab
       - Prefabs/Pepe.prefab
@@ -47,6 +49,9 @@ CollapsedEntities:
       - Scenes/Scene.scene
       - Shaders
       - Shaders/pbr.ss_graph
+      - Sounds/BGM.mp3
+      - Sounds/fireball-whoosh-5-179129.mp3
+      - Sounds/water-splash-199583.mp3
       - SpectaclesInteractionKit.lspkg/Assets/Audio
       - SpectaclesInteractionKit.lspkg/Assets/Audio/HoverAudioTrack.wav
       - SpectaclesInteractionKit.lspkg/Assets/Audio/TriggerEndAudioTrack.wav
@@ -696,7 +701,6 @@ CollapsedEntities:
       - _Packages/SpectaclesUIKit.lspkg/Textures/test-image.jpg
       - _Packages/SpectaclesUIKit.lspkg/package.native
       - _Packages/SpectaclesUIKit.lspkg/package_dependencies.json
-      - _Scripts
       - _Scripts/3DGeneration
       - _Scripts/3DGeneration/Snap3D.ts
       - _Scripts/3DGeneration/Snap3DTypes.ts
@@ -707,11 +711,12 @@ CollapsedEntities:
       - _Scripts/3DGeneration/Utils/Snap3D_GetStatus.remoteServiceModule
       - _Scripts/3DGeneration/Utils/Snap3D_Submit.remoteServiceModule
       - _Scripts/GestureHandler.ts
+      - _Scripts/Player/PlayerHealth.ts
+      - _Scripts/Player/PlayerLogic.ts
       - _Scripts/SpellMovement.ts
       - _Scripts/Targeting.ts
       - _Scripts/Test.ts
       - _Scripts/UIHandler.ts
-      - _Scripts/enemy_scripts
       - _Scripts/enemy_scripts/EnemySpawner.ts
       - _Scripts/enemy_scripts/Lerp.ts
       - _Scripts/web-facing/Call_AI.js

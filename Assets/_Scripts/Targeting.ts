@@ -14,9 +14,13 @@ export class Targeting extends BaseScriptComponent {
   @input
   spellModel: SceneObject;
 
+  @input 
+  fireAudio:AudioComponent
+
+  @input 
+  waterAudio:AudioComponent
+
   private mCamera = WorldCameraFinderProvider.getInstance();
-
-
 
   onAwake() {
     print("Targeting onAwake")
@@ -28,10 +32,14 @@ export class Targeting extends BaseScriptComponent {
         this.debugText.text = 'Left Hand Pinch Down'
         print('Left Hand Pinch Down');
 
-        if (this.gestureGPTScript.IsDone()) {
+        if (this.gestureGPTScript.IsDone() ) {
+
+
           let spell = this.gestureGPTScript.getSpellObject("Water", this.mCamera.getWorldPosition().sub(this.mCamera.forward().uniformScale(110)));
           spell.createComponent(SpellMovement.getTypeName());
           spell.getComponent(SpellMovement.getTypeName()).forwardVec = this.mCamera.forward();
+          this.waterAudio.play(1);
+
         }
       });
 
@@ -44,8 +52,8 @@ export class Targeting extends BaseScriptComponent {
           let spell = this.gestureGPTScript.getSpellObject("Fire", this.mCamera.getWorldPosition().sub(this.mCamera.forward().uniformScale(110)));
           spell.createComponent(SpellMovement.getTypeName());
           spell.getComponent(SpellMovement.getTypeName()).forwardVec = this.mCamera.forward();
+           this.fireAudio.play(1);
         }
-
       });
 
 
